@@ -78,6 +78,7 @@ header a {
   display: grid;
   grid-template-columns: repeat(2, 130px);
   grid-template-rows: 40px;
+  gap: 5px;
   margin-top: 20px;
 }
 .carousel .list .item .content button {
@@ -85,4 +86,10 @@ header a {
   background-color: #eee;
   letter-spacing: 3px;
   font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+.carousel .list .item .content button:nth-child(2) {
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #eee;
 }
