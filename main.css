@@ -93,3 +93,8 @@ header a {
   border: 1px solid #eee;
   color: #eee;
 }
+
+/* Thumbnails */
+.thumbnails {
+  position: absolute;
+}
