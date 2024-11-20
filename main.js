@@ -16,9 +16,17 @@ prevDom.onclick = function () {
 let timeRunning = 3000;
 let timeAutoNext = 7000;
 let runTimeOut;
-let runAutoRun = setTimeout(() => {
-  nextDom.onclick();
-}, timeAutoNext);
+let runAutoRun;
+
+function startAutoRun() {
+  runAutoRun = setTimeout(() => {
+    nextDom.onclick(); // This will move the slider to the next item
+    startAutoRun(); // Restart the auto-run timeout
+  }, timeAutoNext);
+}
+
+// Initial call to start auto-running
+startAutoRun();
 
 function showSlider(type) {
   let itemSlider = document.querySelectorAll(".carousel .list .item");
@@ -42,5 +50,6 @@ function showSlider(type) {
     carouselDom.classList.remove("prev");
   }, timeRunning);
 
-  clearTimeout(runAutoRun);
+  clearTimeout(runAutoRun); // Stop the previous auto-run timeout to reset
+  startAutoRun(); // Restart auto-run after each manual interaction
 }
