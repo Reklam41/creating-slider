@@ -162,7 +162,7 @@ header a {
   transform: translateY(50px);
   filter: blur(20px);
   opacity: 0;
-  animation: showContent 0.5s 1s forwards;
+  animation: showContent 0.5s 1s linear 1 forwards;
 }
 
 @keyframes showContent {
@@ -188,3 +188,44 @@ header a {
 }
 
 /*effect next click*/
+.carousel.next .list .item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-radius: 20px;
+  animation: showImage 0.5s 1s linear forwards;
+}
+
+@keyframes showImage {
+  to {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.carousel.next .thumbnails .item:nth-last-child(1) {
+  width: 0;
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes showThumbnail {
+  to {
+    width: 150px;
+  }
+}
+.carousel.next .thumbnails {
+  transform: translateX(150px);
+  animation: transformThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail {
+  to {
+    transform: translateX(0);
+  }
+}
