@@ -143,6 +143,7 @@ header a {
   font-family: monospace;
   font-weight: bold;
   transition: 0.5s;
+  z-index: 100;
 }
 .arrows button:hover {
   background-color: #fff;
@@ -152,4 +153,36 @@ header a {
 /* animation */
 .carousel .list .item:nth-child(1) {
   z-index: 1;
+}
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .description,
+.carousel .list .item:nth-child(1) .buttons {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 1s forwards;
+}
+
+@keyframes showContent {
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel .list .item:nth-child(1) .title {
+  animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .topic {
+  animation-delay: 1.4s;
+}
+.carousel .list .item:nth-child(1) .description {
+  animation-delay: 1.6s;
+}
+.carousel .list .item:nth-child(1) .buttons {
+  animation-delay: 1.8s;
 }
